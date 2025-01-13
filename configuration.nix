@@ -2,7 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+# I DO NOT KNOW HOW THIS THING WORKS
+# I DO NOT KNOW WHY THIS IS HERE
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -95,6 +97,21 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
+    obsidian 
+  ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "obsidian"
+  ];
+
+  environment.variables = {
+    EDITOR = "vim";
+  };
+
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=/home/svi/nixos/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
