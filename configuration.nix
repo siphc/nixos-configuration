@@ -100,6 +100,7 @@
     obsidian
     fastfetch
     pywal
+    vscodium
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [

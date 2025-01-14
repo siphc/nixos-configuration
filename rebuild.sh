@@ -1,9 +1,13 @@
+set -e
+
+pushd ~/nixos
 $EDITOR configuration.nix
 
 # questions for oneself:
 # why does 'git diff --exit-code' not work?
 if git diff --quiet '*.nix'; then
 	echo "No changes detected; exiting."
+	popd
 	exit 0
 fi
 
