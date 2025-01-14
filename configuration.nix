@@ -99,6 +99,7 @@
     git
     obsidian
     fastfetch
+    pywal
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
