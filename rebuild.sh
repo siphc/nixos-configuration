@@ -7,9 +7,9 @@ if git diff --quiet '*.nix'; then
 	exit 0
 fi
 
-sudo nixos-rebuild switch | grep error && exit 1
+git diff -bU0 '*.nix'
 
-git diff -U0b '*.nix'
+sudo nixos-rebuild switch | grep error && exit 1
 
 message=$(nixos-rebuild list-generations | grep current)
 git commit -am "build version: ${message:0:1}    build date: $(date +%F\ %r)"
