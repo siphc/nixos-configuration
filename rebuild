@@ -1,0 +1,11 @@
+$EDITOR configuration.nix
+
+if git diff -U0b --exit-code; then
+	echo -e "\nNo changes detected; exiting."
+	exit 0
+fi
+
+sudo nixos-rebuild switch | grep error && exit 1
+
+message=$(nixos-rebuild list-generations | grep current)
+git commit -am "build version: ${message:0:1}    build date: $(date +%F\ %r)"
