@@ -58,7 +58,7 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -119,7 +119,7 @@
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+  # started in user sessions. # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
