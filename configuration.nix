@@ -127,6 +127,10 @@
     "obsidian"
   ];
 
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
   environment.variables = {
     EDITOR = "vim";
   };
