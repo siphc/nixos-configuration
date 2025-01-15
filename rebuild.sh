@@ -1,7 +1,4 @@
-set -e
-
 pushd ~/nixos
-$EDITOR configuration.nix
 
 # questions for oneself:
 # why does 'git diff --exit-code' not work?
