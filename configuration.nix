@@ -117,6 +117,7 @@
     vscodium
     gcc
     lf
+    rofi-wayland
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
