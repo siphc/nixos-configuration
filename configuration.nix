@@ -115,7 +115,8 @@
     fastfetch
     pywal # wallpaper & palette picker
     vscodium
-    libgcc
+    gcc
+    lf
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
