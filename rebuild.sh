@@ -13,7 +13,5 @@ fi
 
 git diff -bU0 '*.nix'
 
-sudo nixos-rebuild switch | grep error && exit 1
-
 message=$(nixos-rebuild list-generations | grep current)
 git commit -am "build version: ${message:0:3}    build date: $(date +%F\ %r)"
