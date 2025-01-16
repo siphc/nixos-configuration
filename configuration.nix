@@ -106,8 +106,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  programs.hyprland.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -120,8 +118,6 @@
     # utilities
     vim
     lf
-    kitty
-    rofi-wayland
 
     # graphic applications
     obsidian
@@ -130,7 +126,6 @@
     # vanity
     fastfetch
     pywal # wallpaper & palette picker
-    waybar
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
