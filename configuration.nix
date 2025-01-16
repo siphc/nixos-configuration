@@ -111,16 +111,26 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
+    # dev tools
     git
-    obsidian
-    fastfetch
-    pywal # wallpaper & palette picker
-    vscodium
+    cmake
     gcc
+    docker
+
+    # utilities
+    vim
     lf
     kitty
     rofi-wayland
+
+    # graphic applications
+    obsidian
+    vscodium
+
+    # vanity
+    fastfetch
+    pywal # wallpaper & palette picker
+    waybar
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
