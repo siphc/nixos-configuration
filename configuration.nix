@@ -125,6 +125,7 @@
     (vscode-with-extensions.override { vscodeExtensions = with vscode-extensions; [
       ms-vscode.cpptools
     ];})
+    openconnect
 
     # vanity
     fastfetch
