@@ -113,6 +113,7 @@
     git
     cmake
     gcc
+    clang
     docker
 
     # utilities
@@ -121,7 +122,9 @@
 
     # graphic applications
     obsidian
-    vscodium
+    (vscode-with-extensions.override { vscodeExtensions = with vscode-extensions; [
+      ms-vscode.cpptools
+    ];})
 
     # vanity
     fastfetch
@@ -130,6 +133,9 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "obsidian"
+    "vscode"
+    "vscode-with-extensions"
+    "vscode-extension-ms-vscode-cpptools"
   ];
 
   fonts.packages = with pkgs; [
