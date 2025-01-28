@@ -46,10 +46,13 @@
 
         " self explanatory.
         set noswapfile
+
+        " theme
+        colorscheme wal
       '';
     vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
       start = [
-        vim-colors-solarized
+        wal-vim
       ];
     };
   })
