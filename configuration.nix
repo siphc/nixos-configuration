@@ -123,13 +123,15 @@
     # utilities
     vim-full
     lf # terminal file manager
+    openconnect # vpn client
 
     # graphic applications
     obsidian
     (vscode-with-extensions.override { vscodeExtensions = with vscode-extensions; [
       ms-vscode.cpptools
     ];})
-    openconnect # vpn client
+    krita
+    pinta
 
     # vanity
     fastfetch
