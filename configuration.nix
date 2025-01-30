@@ -107,6 +107,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # manage hibernate and suspend states
+  powerManagement.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -120,7 +123,6 @@
     # utilities
     vim-full
     lf # terminal file manager
-    tlp # optimize battery life
 
     # graphic applications
     obsidian
