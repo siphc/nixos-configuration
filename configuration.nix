@@ -119,14 +119,15 @@
 
     # utilities
     vim-full
-    lf
+    lf # terminal file manager
+    tlp # optimize battery life
 
     # graphic applications
     obsidian
     (vscode-with-extensions.override { vscodeExtensions = with vscode-extensions; [
       ms-vscode.cpptools
     ];})
-    openconnect
+    openconnect # vpn client
 
     # vanity
     fastfetch

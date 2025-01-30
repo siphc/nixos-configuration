@@ -36,9 +36,9 @@
         set ignorecase
         set smartcase
 
-        " always keep 3 lines above or below the cursor when scrolling, and when not at
+        " always keep 8 lines above or below the cursor when scrolling, and when not at
         " the start/end of the file
-        set scrolloff=3
+        set scrolloff=8
 
         " 'enable' allows custom color settings with :highlight commands
         " 'on', in comparison, uses vim default settings
@@ -48,11 +48,17 @@
         set noswapfile
 
         " theme
-        colorscheme wal
+        let g:lightline = {'colorscheme': 'solarized'}
+        set termguicolors
+        set background=light
+        colorscheme solarized8
       '';
     vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
       start = [
-        wal-vim
+        nerdtree
+        lightline-vim
+        vim-solarized8
+        vim-smoothie
       ];
     };
   })
