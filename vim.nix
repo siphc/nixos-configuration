@@ -59,6 +59,7 @@
         lightline-vim
         vim-solarized8
         vim-smoothie
+        vim-cpp-enhanced-highlight
       ];
     };
   })
