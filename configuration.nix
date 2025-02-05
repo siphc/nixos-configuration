@@ -145,9 +145,16 @@
     "vscode-extension-ms-vscode-cpptools"
   ];
 
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  fonts = {
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = ["CascadiaCode"]; })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = ["CaskaydiaCove Nerd Font"];
+      };
+    };
+  };
 
   environment.variables = {
     EDITOR = "vim";
