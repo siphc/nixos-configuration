@@ -148,13 +148,18 @@
   fonts = {
     packages = with pkgs; [
       (nerdfonts.override { fonts = ["CascadiaCode"]; })
+      wqy_microhei
     ];
     fontconfig = {
       defaultFonts = {
+        serif = ["DejaVu Serif" "wqy_microhei"];
+        sansSerif = ["DejaVu Sans" "wqy_microhei"];
         monospace = ["CaskaydiaCove Nerd Font"];
       };
     };
   };
+
+  console.font = null;
 
   environment.variables = {
     EDITOR = "vim";
