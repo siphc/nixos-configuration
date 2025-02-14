@@ -124,6 +124,7 @@
     vim-full
     lf # terminal file manager
     openconnect # vpn client
+    gnupg 
 
     # graphic applications
     obsidian
@@ -148,12 +149,13 @@
   fonts = {
     packages = with pkgs; [
       (nerdfonts.override { fonts = ["CascadiaCode"]; })
-      wqy_microhei
+      wqy_microhei # cn & jp
+      nanum # kr
     ];
     fontconfig = {
       defaultFonts = {
-        serif = ["DejaVu Serif" "wqy_microhei"];
-        sansSerif = ["DejaVu Sans" "wqy_microhei"];
+        serif = ["DejaVu Serif" "wqy_microhei" "nanum"];
+        sansSerif = ["DejaVu Sans" "wqy_microhei" "nanum"];
         monospace = ["CaskaydiaCove Nerd Font"];
       };
     };
