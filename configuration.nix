@@ -119,9 +119,13 @@
     gcc
     clang
     docker
+    gnumake
+    hugo
+    freeglut
+    libGL
+    libGLU
 
     # utilities
-    vim-full
     lf # terminal file manager
     openconnect # vpn client
     gnupg 
