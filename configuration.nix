@@ -104,31 +104,33 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # manage hibernate and suspend states
   powerManagement.enable = true;
+
+  # i don't know what this does
+  virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # dev tools
     git
-    cmake
+    docker
+    hugo
+    lldb
+
+    # c development
     gcc
     clang
-    docker
     gnumake
-    hugo
-    freeglut
-    libGL
-    libGLU
+    cmake
 
     # utilities
     lf # terminal file manager
     openconnect # vpn client
-    gnupg 
+    gnupg
+      pinentry-curses
+      paperkey
 
     # graphic applications
     obsidian
@@ -137,11 +139,19 @@
     ];})
     krita
     pinta
+    librewolf
 
     # vanity
     fastfetch
     pywal # wallpaper & palette picker
   ];
+
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+    enableSSHSupport = true;
+  };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "obsidian"
