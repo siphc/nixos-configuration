@@ -131,6 +131,7 @@
     gnupg
       pinentry-curses
       paperkey
+    htop
 
     # graphic applications
     obsidian
@@ -139,7 +140,9 @@
     ];})
     krita
     pinta
+    firefox
     librewolf
+    livecaptions
 
     # vanity
     fastfetch
