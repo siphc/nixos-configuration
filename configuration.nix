@@ -108,7 +108,7 @@
   powerManagement.enable = true;
 
   # i don't know what this does
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -148,6 +148,10 @@
     fastfetch
     pywal # wallpaper & palette picker
   ];
+
+  # kernel version
+  # 6.12.* causes screen tearing on GNOME
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
 
   services.pcscd.enable = true;
   programs.gnupg.agent = {

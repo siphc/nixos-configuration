@@ -50,14 +50,14 @@
         " theme
         let g:lightline = {'colorscheme': 'solarized'}
         set termguicolors
-        set background=light
-        colorscheme solarized8
+        set background=dark
+        colorscheme everforest
       '';
     vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
       start = [
         nerdtree
         lightline-vim
-        vim-solarized8
+        everforest
         vim-smoothie
         vim-cpp-enhanced-highlight
       ];
