@@ -64,7 +64,7 @@
   services.xserver.windowManager.dwm = {
     enable = true;
     package = pkgs.dwm.overrideAttrs {
-      src = ../dwm;
+      src = ./dwm;
     };
   };
 
@@ -145,6 +145,9 @@
       paperkey
     htop
     st # terminal
+    pulseaudio # enables pactl (superseded in pipewire)
+    brightnessctl # device brightness control
+    xorg.xmodmap
 
     # graphic applications
     obsidian
