@@ -55,10 +55,9 @@ static const Layout layouts[] = {
 
 // volume and brightness control
 // commands are executed as space-delimited
-// thanks wiki.archlinux.org/title/Dwm#Mapping_multimedia_keys
-static const char *up_vol[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",   NULL };
-static const char *down_vol[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",   NULL };
-static const char *mute_vol[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
+static const char *up_vol[]   = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "+5%",    NULL };
+static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "-5%",    NULL };
+static const char *mute_vol[] = { "wpctl", "set-mute",   "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
 
 static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
 static const char *dimmer[]   = { "brightnessctl", "set", "5%-", NULL };

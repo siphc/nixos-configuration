@@ -145,15 +145,18 @@
       paperkey
     htop
     st # terminal
-    pulseaudio # enables pactl (superseded in pipewire)
     brightnessctl # device brightness control
-    xorg.xmodmap
+    dmenu # dynamic menu for dwm
+    (slstatus.overrideAttrs { # status monitor
+      src = ./slstatus;
+    })
 
     # graphic applications
     obsidian
-    (vscode-with-extensions.override { vscodeExtensions = with vscode-extensions; [
-      ms-vscode.cpptools
-    ];})
+    (vscode-with-extensions.override {
+      vscodeExtensions = with vscode-extensions;
+       [ms-vscode.cpptools];
+    })
     krita
     pinta
     firefox
@@ -169,13 +172,16 @@
   # 6.12.* causes screen tearing on GNOME
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
 
+  # no idea why this is here? this is why we document, kids
   services.pcscd.enable = true;
+  # required to make gpg work properly
   programs.gnupg.agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
     enableSSHSupport = true;
   };
 
+  # unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "obsidian"
     "vscode"
@@ -212,14 +218,6 @@
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
-  # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
