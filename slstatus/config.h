@@ -63,11 +63,20 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
+
+static const char volume[] = "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2,$3}'";
+static const char brightness[] = "brightnessctl -m | awk -F, '{print $3}'";
+static const char brightness_perc[] = "brightnessctl -m | awk -F, '{print substr($4,1,index($4,\"%\")-1)}'";
+
+
 static const struct arg args[] = {
 	/* function     format          argument */
-    { cpu_perc,     "cpu %s  ",     NULL    },
+    { cpu_perc,     "cpu %s%%  ",   NULL    },
     { ram_used,     "ram %s",       NULL    },
-    { ram_total,    "/%s  ",         NULL    },
-    { battery_perc, "bat %s%%  ",     "BAT0"  },
+    { ram_total,    "/%s  ",        NULL    },
+    { run_command,  "vol %s  ",     volume  },
+    { run_command,  "bright %s ",   brightness},
+    { run_command,  "(%s%%)  ",     brightness_perc},
+    { battery_perc, "bat %s%%  ",   "BAT0"  },
 	{ datetime,     "%s",           "%F %T" },
 };
