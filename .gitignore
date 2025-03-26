@@ -1,4 +1,8 @@
 *.log
-dwm/
-slstatus/
-!config.h/
+*/
+!dwm/
+dwm/*
+!dwm/config.h
+!slstatus/
+slstatus/*
+!slstatus/config.h
