@@ -52,6 +52,10 @@
         set termguicolors
         set background=dark
         colorscheme everforest
+
+        " .nix 2-width tabs
+        au BufNewFile,BufRead *.nix setlocal tabstop=2
+        au BufNewFile,BufRead *.nix setlocal shiftwidth=2
       '';
     vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
       start = [
