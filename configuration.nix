@@ -150,6 +150,8 @@
     (slstatus.overrideAttrs { # status monitor
       src = ./slstatus;
     })
+    scrot # screenshots
+    xclip # clipboard
 
     # graphic applications
     obsidian
@@ -162,6 +164,7 @@
     firefox
     librewolf
     livecaptions
+    nsxiv # image viewer
 
     # vanity
     fastfetch
@@ -208,6 +211,14 @@
 
   environment.variables = {
     EDITOR = "vim";
+  };
+
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "librewolf.desktop";
+    "image/png" = "nsxiv.desktop";
+    "image/jpeg" = "nsxiv.desktop";
+    "image/gif" = "nsxiv.desktop";
+    "image/webp" = "nsxiv.desktop";
   };
 
   nix.nixPath = [

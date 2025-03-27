@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 500;
+const unsigned int interval = 800;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -70,13 +70,16 @@ static const char brightness_perc[] = "brightnessctl -m | awk -F, '{print substr
 
 
 static const struct arg args[] = {
-	/* function     format          argument */
-    { cpu_perc,     "cpu %s%%  ",   NULL    },
-    { ram_used,     "ram %s",       NULL    },
-    { ram_total,    "/%s  ",        NULL    },
-    { run_command,  "vol %s  ",     volume  },
-    { run_command,  "bright %s",   brightness},
-    { run_command,  "(%s%%)  ",     brightness_perc},
-    { battery_perc, "bat %s%%  ",   "BAT0"  },
-	{ datetime,     "%s",           "%F %T" },
+	/* function             format          argument */
+    { cpu_perc,             "cpu %s%%  ",   NULL            },
+    { ram_used,             "ram %s",       NULL            },
+    { ram_total,            "/%.6s  ",      NULL            },
+    { run_command,          "vol %s  ",     volume          },
+    { run_command,          "bright %s",    brightness      },
+    { run_command,          "(%s%%)  ",     brightness_perc },
+    { wifi_essid,           "%s",           "wlp1s0"        },
+    { wifi_perc,            "(%s%%)  ",     "wlp1s0"        },
+    { battery_perc,         "bat %s%%",     "BAT0"          },
+    { battery_remaining,    "(%s)  ",       "BAT0"          },
+	{ datetime,             "%s",           "%m/%d %T"      },
 };
