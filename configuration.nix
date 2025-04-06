@@ -119,6 +119,16 @@
   # manage hibernate and suspend states
   powerManagement.enable = true;
 
+  services.thermald.enable = true;
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      TLP_DEFAULT_MODE = "AC";
+      PCIE_ASPM_ON_BAT = "powersupersave";
+    };
+  };
+
   # i don't know what this does
   # virtualisation.docker.enable = true;
 
@@ -128,8 +138,8 @@
     # dev tools
     git
     docker
-    hugo
     lldb
+    patchelf
 
     # c development
     gcc
@@ -173,7 +183,12 @@
 
   # kernel version
   # 6.12.* causes screen tearing on GNOME
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
+
+  # x display locker
+  programs.slock.enable = true;
+  programs.xss-lock.enable = true;
+  programs.xss-lock.lockerCommand = "/run/wrappers/bin/slock";
 
   # no idea why this is here? this is why we document, kids
   services.pcscd.enable = true;
@@ -190,6 +205,12 @@
     "vscode"
     "vscode-with-extensions"
     "vscode-extension-ms-vscode-cpptools"
+  ];
+
+  # unpackaged executables fix?
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glibc
   ];
 
   fonts = {
