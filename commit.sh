@@ -9,5 +9,3 @@ git diff -bU0
 
 message=$(nixos-rebuild list-generations | grep current)
 git commit -am "build version: ${message:0:3}    build date: $(date +%F\ %r)"
-
-git push

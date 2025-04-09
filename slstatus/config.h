@@ -71,15 +71,15 @@ static const char brightness_perc[] = "brightnessctl -m | awk -F, '{print substr
 
 static const struct arg args[] = {
 	/* function             format          argument */
-    { cpu_perc,             "cpu %s%%  ",   NULL            },
-    { ram_used,             "ram %s",       NULL            },
-    { ram_total,            "/%.6s  ",      NULL            },
-    { run_command,          "vol %s  ",     volume          },
-    { run_command,          "bright %s",    brightness      },
-    { run_command,          "(%s%%)  ",     brightness_perc },
-    { wifi_essid,           "%s",           "wlp1s0"        },
-    { wifi_perc,            "(%s%%)  ",     "wlp1s0"        },
-    { battery_perc,         "bat %s%%",     "BAT0"          },
-    { battery_remaining,    "(%s)  ",       "BAT0"          },
+    { cpu_perc,             "^c#e67e80^cpu %s%%  ",   NULL            },
+    { ram_used,             "^c#e69875^ram %s",       NULL            },
+    { ram_total,            "^c#e69875^/%.6s  ",      NULL            },
+    { run_command,          "^c#dbbc7f^vol %s  ",     volume          },
+    { run_command,          "^c#a7c080^bright %s",    brightness      },
+    { run_command,          "^c#a7c080^(%s%%)  ",     brightness_perc },
+    { wifi_essid,           "^c#7fbbb3^%s",           "wlp1s0"        },
+    { wifi_perc,            "^c#7fbbb3^(%s%%)  ",     "wlp1s0"        },
+    { battery_perc,         "^c#d699b6^bat %s%%",     "BAT0"          },
+    { battery_remaining,    "^c#d699b6^(%s)  ",       "BAT0"          },
 	{ datetime,             "%s",           "%m/%d %T"      },
 };

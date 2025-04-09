@@ -1,10 +1,6 @@
 *.log
-*/
-!dwm/
 dwm/*
-!dwm/config.h
-!dwm/*.sh
-!slstatus/
 slstatus/*
-!slstatus/config.h
-
+!*/config.h
+!*/*.sh
+!*/patches/
