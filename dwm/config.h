@@ -10,13 +10,14 @@ static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#293136";
 static const char col_gray2[]       = "#333c43";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#83c092";
+static const char col_fg[]          = "#d3c6aa";
+static const char col_lgreen[]      = "#a7c080";
+static const char col_lred[]        = "#e67e80";
+static const char col_dgreen[]      = "#48584e";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_fg, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_fg, col_dgreen, col_lred },
 };
 
 /* tagging */
@@ -67,7 +68,7 @@ static const char *dimmer[]   = { "brightnessctl", "set", "5%-", NULL };
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_fg, "-sb", col_lgreen, "-sf", col_gray2, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const char *def_browser[] = {"xdg-open", "https://", NULL};
