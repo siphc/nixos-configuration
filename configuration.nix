@@ -132,6 +132,11 @@
   # i don't know what this does
   # virtualisation.docker.enable = true;
 
+  # bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -175,6 +180,8 @@
     librewolf
     livecaptions
     nsxiv # image viewer
+    tor-browser
+    pyfa
 
     # vanity
     fastfetch

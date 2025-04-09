@@ -48,10 +48,13 @@
         set noswapfile
 
         " theme
-        let g:lightline = {'colorscheme': 'solarized'}
+        set noshowmode
         set termguicolors
         set background=dark
+        let g:everforest_background='soft'
+        " let g:everforest_better_performance=1
         colorscheme everforest
+        let g:lightline = {'colorscheme': 'everforest'}
 
         " .nix 2-width tabs
         au BufNewFile,BufRead *.nix setlocal tabstop=2
