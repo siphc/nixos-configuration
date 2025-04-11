@@ -71,15 +71,15 @@ static const char brightness_perc[] = "brightnessctl -m | awk -F, '{print substr
 
 static const struct arg args[] = {
 	/* function             format          argument */
-    { cpu_perc,             "^c#e67e80^cpu %s%%  ",   NULL            },
-    { ram_used,             "^c#e69875^ram %s",       NULL            },
-    { ram_total,            "^c#e69875^/%.6s  ",      NULL            },
-    { run_command,          "^c#dbbc7f^vol %s  ",     volume          },
-    { run_command,          "^c#a7c080^bright %s",    brightness      },
-    { run_command,          "^c#a7c080^(%s%%)  ",     brightness_perc },
-    { wifi_essid,           "^c#83c092^%s",           "wlp1s0"        },
-    { wifi_perc,            "^c#83c092^(%s%%)  ",     "wlp1s0"        },
-    { battery_perc,         "^c#7fbbb3^bat %s%%",     "BAT0"          },
-    { battery_remaining,    "^c#7fbbb3^(%s)  ",       "BAT0"          },
-	{ datetime,             "^c#d699b6^%s",           "%m/%d %T"      },
+    { cpu_perc,             "^c#d3c6aa^cpu %s%%  ",   NULL            },
+    { ram_used,             "^c#d3c6aa^ram %s",       NULL            },
+    { ram_total,            "^c#d3c6aa^/%.6s  ",      NULL            },
+    { run_command,          "^c#d3c6aa^vol %s  ",     volume          },
+    { run_command,          "^c#d3c6aa^bright %s",    brightness      },
+    { run_command,          "^c#d3c6aa^(%s%%)  ",     brightness_perc },
+    { wifi_essid,           "^c#d3c6aa^%s",           "wlp1s0"        },
+    { wifi_perc,            "^c#d3c6aa^(%s%%)  ",     "wlp1s0"        },
+    { battery_perc,         "^c#d3c6aa^bat %s%%",     "BAT0"          },
+    { battery_remaining,    "^c#d3c6aa^(%s)  ",       "BAT0"          },
+	{ datetime,             "^c#d3c6aa^%s",           "%m/%d %T"      },
 };
