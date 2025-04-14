@@ -151,6 +151,7 @@
     clang
     gnumake
     cmake
+    glibc
 
     # utilities
     lf # terminal file manager
@@ -182,6 +183,7 @@
     nsxiv # image viewer
     tor-browser
     pyfa
+    w3m
 
     # vanity
     fastfetch
