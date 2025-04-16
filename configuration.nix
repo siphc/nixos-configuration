@@ -160,11 +160,13 @@
       pinentry-curses
       paperkey
     htop
-    st # terminal
     brightnessctl # device brightness control
     dmenu # dynamic menu for dwm
     (slstatus.overrideAttrs { # status monitor
       src = ./slstatus;
+    })
+    (st.overrideAttrs { # terminal
+      src = ./st;
     })
     scrot # screenshots
     xclip # clipboard

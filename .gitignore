@@ -1,6 +1,7 @@
 *.log
 dwm/*
 slstatus/*
+st/*
 !*/config.h
 !*/*.sh
 !*/patches/
