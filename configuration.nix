@@ -173,7 +173,7 @@
     obsidian
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions;
-       [ms-vscode.cpptools];
+       [ms-vscode.cpptools ms-vscode.live-server];
     })
     krita
     pinta
@@ -183,11 +183,9 @@
     nsxiv # image viewer
     tor-browser
     pyfa
-    w3m
 
     # vanity
     fastfetch
-    pywal # wallpaper & palette picker
   ];
 
   # kernel version
