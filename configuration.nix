@@ -186,6 +186,7 @@
 
     # vanity
     fastfetch
+    feh # wallpaper
   ];
 
   # kernel version
