@@ -184,7 +184,6 @@
     livecaptions
     nsxiv # image viewer
     tor-browser
-    pyfa
 
     # vanity
     fastfetch
