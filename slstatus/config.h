@@ -71,7 +71,7 @@ static const char brightness_perc[] = "brightnessctl -m | awk -F, '{print substr
 
 static const struct arg args[] = {
 	/* function             format          argument */
-    { cpu_perc,             "^c#d3c6aa^cpu %s%%  ",   NULL            },
+    { cpu_perc,             "cpu %s%%  ",   NULL            },
     { ram_used,             "ram %s",       NULL            },
     { ram_total,            "/%.6s  ",      NULL            },
     { run_command,          "vol %s  ",     volume          },
