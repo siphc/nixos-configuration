@@ -145,6 +145,7 @@
     docker
     lldb
     patchelf
+    gdb
 
     # c development
     gcc
@@ -170,6 +171,7 @@
     })
     scrot # screenshots
     xclip # clipboard
+    ascii
 
     # graphic applications
     obsidian
