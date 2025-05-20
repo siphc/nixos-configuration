@@ -146,6 +146,7 @@
     lldb
     patchelf
     gdb
+    objdump
 
     # c development
     gcc
