@@ -68,6 +68,9 @@
     };
   };
 
+  # display manager
+  services.displayManager.ly.enable = true;
+
   # fix screen tearing on X11, hopefully.
   services.picom = {
     enable = true;
@@ -88,7 +91,7 @@
   # services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -155,7 +158,6 @@
 
     # c development
     gcc
-    clang
     gnumake
     cmake
     glibc
@@ -178,6 +180,7 @@
     scrot # screenshots
     xclip # clipboard
     ascii
+    tmux
 
     # graphic applications
     obsidian
@@ -189,13 +192,15 @@
     pinta
     firefox
     librewolf
-    livecaptions
     nsxiv # image viewer
     tor-browser
+    obs-studio
+    vlc
 
     # vanity
     fastfetch
     feh # wallpaper
+    oh-my-git # game
   ];
 
   # kernel version
@@ -232,7 +237,9 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = ["CascadiaCode"]; })
+      # deprecated 25.05
+      # (nerdfonts.override { fonts = ["CascadiaCode"]; })
+      nerd-fonts.caskaydia-cove
       wqy_microhei # cn & jp
       nanum # kr
     ];
