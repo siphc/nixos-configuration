@@ -191,6 +191,7 @@
     krita
     pinta
     firefox
+    firefox-devedition
     librewolf
     nsxiv # image viewer
     tor-browser

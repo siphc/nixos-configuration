@@ -35,6 +35,7 @@
         " search
         set ignorecase
         set smartcase
+        set hlsearch
 
         " always keep 8 lines above or below the cursor when scrolling, and when not at
         " the start/end of the file
