@@ -181,6 +181,7 @@
     xclip # clipboard
     ascii
     tmux
+    wget
 
     # graphic applications
     obsidian
@@ -269,7 +270,7 @@
 
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=/home/svi/nixos/configuration.nix"
+    "nixos-config=/home/svi/nixos-configuration/configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
@@ -291,6 +292,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
