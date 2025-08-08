@@ -139,7 +139,7 @@
   };
 
   # i don't know what this does
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -151,16 +151,16 @@
   environment.systemPackages = with pkgs; [
     # dev tools
     git
-    docker
     lldb
     patchelf
     gdb
+    python310
+    nix-index # nix-locate
 
     # c development
     gcc
     gnumake
     cmake
-    glibc
 
     # utilities
     lf # terminal file manager
@@ -182,12 +182,13 @@
     ascii
     tmux
     wget
+    ollama
 
     # graphic applications
     obsidian
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions;
-       [ms-vscode.cpptools ms-vscode.live-server];
+       [ms-vscode.cpptools ms-vscode.live-server emroussel.atomize-atom-one-dark-theme];
     })
     krita
     pinta
@@ -207,7 +208,7 @@
 
   # kernel version
   # 6.12.* causes screen tearing on GNOME
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
+  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
 
   # x display locker
   programs.slock.enable = true;
