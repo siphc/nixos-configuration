@@ -183,6 +183,8 @@
     tmux
     wget
     ollama
+    dunst
+    libnotify
 
     # graphic applications
     obsidian
@@ -260,6 +262,8 @@
   environment.variables = {
     EDITOR = "vim";
   };
+
+  environment.localBinInPath = true;
 
   xdg.mime.defaultApplications = {
     "application/pdf" = "librewolf.desktop";
