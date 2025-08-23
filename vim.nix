@@ -60,6 +60,10 @@
         " .nix 2-width tabs
         au BufNewFile,BufRead *.nix setlocal tabstop=2
         au BufNewFile,BufRead *.nix setlocal shiftwidth=2
+
+        " .java 2-width tabs, separated for modularity
+        au BufNewFile,BufRead *.java setlocal tabstop=2
+        au BufNewFile,BufRead *.java setlocal shiftwidth=2
       '';
     vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
       start = [
@@ -68,6 +72,7 @@
         everforest
         vim-smoothie
         vim-cpp-enhanced-highlight
+        ale
       ];
     };
   })

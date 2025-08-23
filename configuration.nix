@@ -156,6 +156,7 @@
     gdb
     python310
     nix-index # nix-locate
+    jdk # openJDK 21
 
     # c development
     gcc
