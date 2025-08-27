@@ -24,6 +24,7 @@
         set relativenumber
         set title
         set showmatch
+        set colorcolumn=80
 
         " status line
         set laststatus=2
