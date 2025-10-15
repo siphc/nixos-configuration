@@ -267,6 +267,11 @@
   environment.localBinInPath = true;
 
   xdg.mime.defaultApplications = {
+    "text/html" = "librewolf.desktop";
+    "x-scheme-handler/http" = "librewolf.desktop";
+    "x-scheme-handler/https" = "librewolf.desktop";
+    "x-scheme-handler/about" = "librewolf.desktop";
+    "x-scheme-handler/unknown" = "librewolf.desktop";
     "application/pdf" = "librewolf.desktop";
     "image/png" = "nsxiv.desktop";
     "image/jpeg" = "nsxiv.desktop";
