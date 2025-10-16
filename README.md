@@ -4,4 +4,6 @@ Steps to replicate the system configuration starting from a fresh NixOS installa
 3. download source code of required packages (dwm, st, slstatus) and copy configuration files over
 4. change `users.users.*` and `"nixos-config=*` in `nix.nixPath` to your own username, of course.
 5. `nixos-rebuild switch -I nixos-config=/home/[USER]/nixos-configuration/configuration.nix`
-6. reboot.
+6. ensure screenshot scripts function properly: `cd ~ ; mkdir Pictures && mkdir Pictures/Screenshots`
+7. fix PATH by symlinking to `./bin` from `~/.local/bin`
+8. reboot.
