@@ -191,7 +191,12 @@
     obsidian
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions;
-       [ms-vscode.cpptools ms-vscode.live-server emroussel.atomize-atom-one-dark-theme];
+      [
+        ms-vscode.cpptools
+        ms-vscode.live-server
+        emroussel.atomize-atom-one-dark-theme
+        ms-python.python
+      ];
     })
     krita
     pinta
