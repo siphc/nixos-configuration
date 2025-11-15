@@ -133,8 +133,13 @@
   services.tlp = {
     enable = true;
     settings = {
-      TLP_DEFAULT_MODE = "AC";
-      PCIE_ASPM_ON_BAT = "powersupersave";
+      # run `tlp-stat -p` and check under "Processor" and "Platform Profile".
+      CPU_ENERGY_PERF_POLICY_ON_BAT="power";
+      PLATFORM_PROFILE_ON_BAT="low-power";
+      # disable CPU boost.
+      CPU_BOOST_ON_BAT=0;
+      # disable Adaptive Backlight Modulation (ABM)
+      AMDGPU_ABM_LEVEL_ON_BAT=3;
     };
   };
 
@@ -154,9 +159,10 @@
     lldb
     patchelf
     gdb
-    python310
+    python312
     nix-index # nix-locate
     jdk # openJDK 21
+    nodejs_24
 
     # c development
     gcc
@@ -183,7 +189,6 @@
     ascii
     tmux
     wget
-    ollama
     dunst
     libnotify
 
@@ -196,6 +201,7 @@
         ms-vscode.live-server
         emroussel.atomize-atom-one-dark-theme
         ms-python.python
+        continue.continue
       ];
     })
     krita
