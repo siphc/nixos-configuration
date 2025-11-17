@@ -6,5 +6,6 @@ Steps to replicate the system configuration starting from a fresh NixOS installa
 5. **IMPORTANT**: change `system.stateVersion` to your own version AS OF TIME OF INSTALL as described in `/etc/nixos/configuration.nix`.
 6. `nixos-rebuild switch -I nixos-config=/home/[USER]/nixos-configuration/configuration.nix`
 7. ensure screenshot scripts function properly: `cd ~ ; mkdir Pictures && mkdir Pictures/Screenshots`
-8. fix PATH by symlinking to `./bin` from `~/.local/bin`
-9. reboot.
+8. configure lf: `~/nixos-configuration/initsetup.sh`
+9. fix PATH by symlinking to `./bin` from `~/.local/bin`
+10. reboot.
