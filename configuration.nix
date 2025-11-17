@@ -201,6 +201,7 @@
         ms-vscode.live-server
         emroussel.atomize-atom-one-dark-theme
         ms-python.python
+        continue.continue
       ];
     })
     krita
