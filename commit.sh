@@ -1,3 +1,5 @@
+set -e
+
 # questions for oneself:
 # why does 'git diff --exit-code' not work?
 if git diff --quiet ; then
