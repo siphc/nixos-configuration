@@ -7,312 +7,327 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./vim.nix
-    ];
+	imports =
+		[ # Include the results of the hardware scan.
+			/etc/nixos/hardware-configuration.nix
+			./vim.nix
+		];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+	# Bootloader.
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+	networking.hostName = "nixos"; # Define your hostname.
+	# networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	# Configure network proxy if necessary
+	# networking.proxy.default = "http://user:password@proxy:port/";
+	# networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+	# Enable networking
+	networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
+	# Set your time zone.
+	time.timeZone = "America/Los_Angeles";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+	# Select internationalisation properties.
+	i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
+	i18n.extraLocaleSettings = {
+		LC_ADDRESS = "en_US.UTF-8";
+		LC_IDENTIFICATION = "en_US.UTF-8";
+		LC_MEASUREMENT = "en_US.UTF-8";
+		LC_MONETARY = "en_US.UTF-8";
+		LC_NAME = "en_US.UTF-8";
+		LC_NUMERIC = "en_US.UTF-8";
+		LC_PAPER = "en_US.UTF-8";
+		LC_TELEPHONE = "en_US.UTF-8";
+		LC_TIME = "en_US.UTF-8";
+	};
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-    ];
-    # uim.toolbar = "gtk3";
-  };
+	i18n.inputMethod = {
+		enable = true;
+		type = "fcitx5";
+		fcitx5.addons = with pkgs; [
+			qt6Packages.fcitx5-chinese-addons
+		];
+		# uim.toolbar = "gtk3";
+	};
 
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "zh_CN.UTF-8/UTF-8"
-  ];
+	i18n.supportedLocales = [
+		"en_US.UTF-8/UTF-8"
+		"zh_CN.UTF-8/UTF-8"
+	];
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.windowManager.dwm = {
-    enable = true;
-    package = pkgs.dwm.overrideAttrs {
-      src = ./dwm;
-    };
-  };
+	# Enable the X11 windowing system.
+	services.xserver.enable = true;
+	services.xserver.windowManager.dwm = {
+		enable = true;
+		package = pkgs.dwm.overrideAttrs {
+			src = ./dwm;
+		};
+	};
 
-  # display manager
-  services.displayManager.ly.enable = true;
+	# display manager
+	services.displayManager.ly.enable = true;
 
-  # fix screen tearing on X11, hopefully.
-  services.picom = {
-    enable = true;
-    vSync = true;
-  };
+	# fix screen tearing on X11, hopefully.
+	services.picom = {
+		enable = true;
+		vSync = true;
+	};
 
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+	# Enable the GNOME Desktop Environment.
+	# services.xserver.displayManager.gdm.enable = true;
+	# services.xserver.desktopManager.gnome.enable = true;
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+	# Configure keymap in X11
+	services.xserver.xkb = {
+		layout = "us";
+		variant = "";
+	};
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+	# Enable CUPS to print documents.
+	# services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+	# Enable sound with pipewire.
+	services.pulseaudio.enable = false;
+	security.rtkit.enable = true;
+	services.pipewire = {
+		enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		pulse.enable = true;
+		# If you want to use JACK applications, uncomment this
+		#jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+		# use the example session manager (no others are packaged yet so this is enabled by default,
+		# no need to redefine it in your config for now)
+		#media-session.enable = true;
+	};
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-  # however, you need to configure
-  services.libinput.touchpad = {
-    naturalScrolling = true;
-    clickMethod = "clickfinger";
-    tappingButtonMap = "lrm";
-  };
+	# Enable touchpad support (enabled default in most desktopManager).
+	# services.xserver.libinput.enable = true;
+	# however, you need to configure
+	services.libinput.touchpad = {
+		naturalScrolling = true;
+		clickMethod = "clickfinger";
+		tappingButtonMap = "lrm";
+	};
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.svi = {
-    isNormalUser = true;
-    description = "svi";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-  };
+	# Define a user account. Don't forget to set a password with ‘passwd’.
+	users.users.svi = {
+		isNormalUser = true;
+		description = "svi";
+		extraGroups = [ "networkmanager" "wheel" ];
+		packages = with pkgs; [
+		# thunderbird
+		];
+	};
 
-  # manage hibernate and suspend states
-  powerManagement.enable = true;
+	# manage hibernate and suspend states
+	powerManagement.enable = true;
 
-  services.thermald.enable = true;
+	services.thermald.enable = true;
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      # run `tlp-stat -p` and check under "Processor" and "Platform Profile".
-      CPU_ENERGY_PERF_POLICY_ON_BAT="power";
-      PLATFORM_PROFILE_ON_BAT="low-power";
-      # disable CPU boost.
-      CPU_BOOST_ON_BAT=0;
-      # disable Adaptive Backlight Modulation (ABM)
-      AMDGPU_ABM_LEVEL_ON_BAT=3;
-    };
-  };
+	services.tlp = {
+		enable = true;
+		settings = {
+			# run `tlp-stat -p` and check under "Processor" and "Platform Profile".
+			CPU_ENERGY_PERF_POLICY_ON_BAT="power";
+			PLATFORM_PROFILE_ON_BAT="low-power";
+			# disable CPU boost.
+			CPU_BOOST_ON_BAT=0;
+			# disable Adaptive Backlight Modulation (ABM)
+			AMDGPU_ABM_LEVEL_ON_BAT=3;
+		};
+	};
 
-  # i don't know what this does
-  virtualisation.docker.enable = true;
+	# i don't know what this does
+	virtualisation.docker.enable = true;
 
-  # bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
+	# bluetooth
+	hardware.bluetooth.enable = true;
+	hardware.bluetooth.powerOnBoot = true;
+	services.blueman.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # dev tools
-    git
-    lldb
-    patchelf
-    gdb
-    python312
-    nix-index # nix-locate
-    jdk # openJDK 21
-    nodejs_24
+	services.mongodb.enable = true;
+	# some versions of mongodb fails to build
+	services.mongodb.package = pkgs.mongodb-ce;
 
-    # c development
-    gcc
-    gnumake
-    cmake
+	# List packages installed in system profile. To search, run:
+	# $ nix search wget
+	environment.systemPackages = with pkgs; [
+		# dev tools
+		git
+		lldb
+		patchelf
+		gdb
+		python312
+		nix-index # nix-locate
+		jdk # openJDK 21
+		nodejs_24
+		man-pages
+		man-pages-posix
 
-    # utilities
-    lf # terminal file manager
-    openconnect # vpn client
-    gnupg
-      pinentry-curses
-      paperkey
-    htop
-    brightnessctl # device brightness control
-    dmenu # dynamic menu for dwm
-    (slstatus.overrideAttrs { # status monitor
-      src = ./slstatus;
-    })
-    (st.overrideAttrs { # terminal
-      src = ./st;
-    })
-    scrot # screenshots
-    xclip # clipboard
-    ascii
-    tmux
-    wget
-    dunst
-    libnotify
+		# c development
+		gcc
+		gnumake
+		cmake
 
-    # graphic applications
-    obsidian
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions;
-      [
-        ms-vscode.cpptools
-        ms-vscode.live-server
-        emroussel.atomize-atom-one-dark-theme
-        ms-python.python
-      ];
-    })
-    krita
-    pinta
-    firefox
-    firefox-devedition
-    librewolf
-    nsxiv # image viewer
-    tor-browser
-    obs-studio
-    vlc
+		# utilities
+		lf # terminal file manager
+		openconnect # vpn client
+		gnupg
+			pinentry-curses
+			paperkey
+		htop
+		brightnessctl # device brightness control
+		dmenu # dynamic menu for dwm
+		(slstatus.overrideAttrs { # status monitor
+			src = ./slstatus;
+		})
+		(st.overrideAttrs { # terminal
+			src = ./st;
+		})
+		scrot # screenshots
+		xclip # clipboard
+		ascii
+		tmux
+		wget
+		dunst
+		libnotify
 
-    # vanity
-    fastfetch
-    feh # wallpaper
-    oh-my-git # game
-  ];
+		# graphic applications
+		obsidian
+		(vscode-with-extensions.override {
+			vscodeExtensions = with vscode-extensions;
+			[
+				ms-vscode.cpptools
+				ms-python.python
+				ms-vscode.live-server
+				ms-vscode.makefile-tools
+				emroussel.atomize-atom-one-dark-theme
+				github.copilot-chat
+				github.copilot
+			];
+		})
+		krita
+		pinta
+		firefox
+		firefox-devedition
+		librewolf
+		nsxiv # image viewer
+		tor-browser
+		obs-studio
+		vlc
+		bolt-launcher
+		runelite
 
-  # kernel version
-  # 6.12.* causes screen tearing on GNOME
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
+		# vanity
+		fastfetch
+		feh # wallpaper
+		oh-my-git # game
+	];
 
-  # x display locker
-  programs.slock.enable = true;
-  programs.xss-lock.enable = true;
-  programs.xss-lock.lockerCommand = "/run/wrappers/bin/slock";
+	# kernel version
+	# 6.12.* causes screen tearing on GNOME
+	# boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_12;
 
-  # no idea why this is here? this is why we document, kids
-  services.pcscd.enable = true;
-  # required to make gpg work properly
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
-    enableSSHSupport = true;
-  };
+	# x display locker
+	programs.slock.enable = true;
+	programs.xss-lock.enable = true;
+	programs.xss-lock.lockerCommand = "/run/wrappers/bin/slock";
 
-  # unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "obsidian"
-    "vscode"
-    "vscode-with-extensions"
-    "vscode-extension-ms-vscode-cpptools"
-  ];
+	# no idea why this is here? this is why we document, kids
+	services.pcscd.enable = true;
+	# required to make gpg work properly
+	programs.gnupg.agent = {
+		enable = true;
+		pinentryPackage = pkgs.pinentry-curses;
+		enableSSHSupport = true;
+	};
 
-  # unpackaged executables fix?
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    glibc
-  ];
+	# unfree packages
+	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+		"obsidian"
+		"vscode"
+		"vscode-with-extensions"
+		"vscode-extension-ms-vscode-cpptools"
+		"vscode-extension-github-copilot-chat"
+		"vscode-extension-github-copilot"
+		"mongodb"
+		"mongodb-ce"
+	];
 
-  fonts = {
-    packages = with pkgs; [
-      # deprecated 25.05
-      # (nerdfonts.override { fonts = ["CascadiaCode"]; })
-      nerd-fonts.caskaydia-cove
-      wqy_microhei # cn & jp
-      nanum # kr
-    ];
-    fontconfig = {
-      defaultFonts = {
-        serif = ["DejaVu Serif" "wqy_microhei" "nanum"];
-        sansSerif = ["DejaVu Sans" "wqy_microhei" "nanum"];
-        monospace = ["CaskaydiaCove Nerd Font"];
-      };
-    };
-  };
+	# unpackaged executables fix?
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = with pkgs; [
+		glibc
+	];
 
-  console.font = null;
+	fonts = {
+		packages = with pkgs; [
+			# deprecated 25.05
+			# (nerdfonts.override { fonts = ["CascadiaCode"]; })
+			nerd-fonts.caskaydia-cove
+			wqy_microhei # cn & jp
+			nanum # kr
+		];
+		fontconfig = {
+			defaultFonts = {
+				serif = ["DejaVu Serif" "wqy_microhei" "nanum"];
+				sansSerif = ["DejaVu Sans" "wqy_microhei" "nanum"];
+				monospace = ["CaskaydiaCove Nerd Font"];
+			};
+		};
+	};
 
-  environment.variables = {
-    EDITOR = "vim";
-  };
+	console.font = null;
 
-  environment.localBinInPath = true;
+	environment.variables = {
+		EDITOR = "vim";
+	};
 
-  xdg.mime.defaultApplications = {
-    "text/html" = "librewolf.desktop";
-    "x-scheme-handler/http" = "librewolf.desktop";
-    "x-scheme-handler/https" = "librewolf.desktop";
-    "x-scheme-handler/about" = "librewolf.desktop";
-    "x-scheme-handler/unknown" = "librewolf.desktop";
-    "application/pdf" = "librewolf.desktop";
-    "image/png" = "nsxiv.desktop";
-    "image/jpeg" = "nsxiv.desktop";
-    "image/gif" = "nsxiv.desktop";
-    "image/webp" = "nsxiv.desktop";
-  };
+	environment.localBinInPath = true;
 
-  nix.nixPath = [
-    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=/home/svi/nixos-configuration/configuration.nix"
-    "/nix/var/nix/profiles/per-user/root/channels"
-  ];
+	xdg.mime.defaultApplications = {
+		"text/html" = "librewolf.desktop";
+		"x-scheme-handler/http" = "librewolf.desktop";
+		"x-scheme-handler/https" = "librewolf.desktop";
+		"x-scheme-handler/about" = "librewolf.desktop";
+		"x-scheme-handler/unknown" = "librewolf.desktop";
+		"application/pdf" = "librewolf.desktop";
+		"image/png" = "nsxiv.desktop";
+		"image/jpeg" = "nsxiv.desktop";
+		"image/gif" = "nsxiv.desktop";
+		"image/webp" = "nsxiv.desktop";
+	};
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+	nix.nixPath = [
+		"nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+		"nixos-config=/home/svi/nixos-configuration/configuration.nix"
+		"/nix/var/nix/profiles/per-user/root/channels"
+	];
 
-  # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+	# Some programs need SUID wrappers, can be configured further or are
+	# started in user sessions.
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+	# Enable the OpenSSH daemon.
+	 services.openssh.enable = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+	# Open ports in the firewall.
+	# networking.firewall.allowedTCPPorts = [ ... ];
+	# networking.firewall.allowedUDPPorts = [ ... ];
+	# Or disable the firewall altogether.
+	# networking.firewall.enable = false;
+
+	# This value determines the NixOS release from which the default
+	# settings for stateful data, like file locations and database versions
+	# on your system were taken. It‘s perfectly fine and recommended to leave
+	# this value at the release version of the first install of this system.
+	# Before changing this value read the documentation for this option
+	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+	system.stateVersion = "25.05"; # Did you read the comment?
 
 }
