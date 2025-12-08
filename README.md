@@ -7,8 +7,9 @@ Steps to replicate the system configuration starting from a fresh NixOS installa
 6. `nixos-rebuild switch -I nixos-config=/home/[USER]/nixos-configuration/configuration.nix`
 7. ensure screenshot scripts function properly: `cd ~ ; mkdir -p Pictures/Screenshots`
 8. configure lf: `~/nixos-configuration/initsetup.sh`
-9. fix PATH by symlinking to `./bin` from `~/.local/bin`
-10. reboot.
+9. copy .bashrc out of this directory to your $HOME.
+10. fix PATH by symlinking to `./bin` from `~/.local/bin`
+11. reboot.
 
 Steps to upgrade nixpkgs channels:
 I don't trust system.autoUpgrade.enable, so we have to do this manually twice a year.
@@ -16,3 +17,6 @@ I don't trust system.autoUpgrade.enable, so we have to do this manually twice a 
 2. `sudo nixos-rebuild switch --upgrade`
 Both commands have to be ran with `sudo` to make sure that the channel is correctly set in the configuration file (as [channels are set per user](https://nixos.org/manual/nixos/stable/#sec-upgrading)).
 Pretty sure this recompiles firefox like 4 times, so you'll need to wait a bit.
+
+TODO:
+All three suckless packages can be added as Git submodules... Will get to that the next time I have to reinstall my system.

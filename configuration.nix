@@ -162,7 +162,6 @@
 		git
 		lldb
 		patchelf
-		gdb
 		python312
 		nix-index # nix-locate
 		jdk # openJDK 21
@@ -172,6 +171,8 @@
 
 		# c development
 		gcc
+		gdb
+		clang
 		gnumake
 		cmake
 
@@ -221,13 +222,12 @@
 		tor-browser
 		obs-studio
 		vlc
-		bolt-launcher
-		runelite
 
 		# vanity
 		fastfetch
 		feh # wallpaper
 		oh-my-git # game
+		oh-my-posh # prompt engine
 	];
 
 	# kernel version
