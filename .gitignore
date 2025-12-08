@@ -5,3 +5,4 @@ st/*
 !*/config.h
 !*/*.sh
 !*/patches/
+*.bak
