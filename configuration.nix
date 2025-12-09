@@ -168,6 +168,7 @@
 		nodejs_24
 		man-pages
 		man-pages-posix
+		hugo
 
 		# c development
 		gcc
