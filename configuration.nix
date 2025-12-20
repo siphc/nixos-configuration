@@ -223,6 +223,8 @@
 		tor-browser
 		obs-studio
 		vlc
+		bolt-launcher
+		runelite
 
 		# vanity
 		fastfetch
