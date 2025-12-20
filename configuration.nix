@@ -199,6 +199,8 @@
 		wget
 		dunst
 		libnotify
+		zip
+		unzip
 
 		# graphic applications
 		obsidian
