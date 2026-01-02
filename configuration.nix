@@ -213,7 +213,6 @@
 				ms-vscode.makefile-tools
 				emroussel.atomize-atom-one-dark-theme
 				github.copilot-chat
-				github.copilot
 			];
 		})
 		krita
@@ -227,6 +226,7 @@
 		vlc
 		bolt-launcher
 		runelite
+		dissent
 
 		# vanity
 		fastfetch
@@ -253,6 +253,13 @@
 		enableSSHSupport = true;
 	};
 
+	programs.steam = {
+		enable = true;
+		# remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+		# dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+		# localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+	};
+
 	# unfree packages
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"obsidian"
@@ -260,9 +267,12 @@
 		"vscode-with-extensions"
 		"vscode-extension-ms-vscode-cpptools"
 		"vscode-extension-github-copilot-chat"
-		"vscode-extension-github-copilot"
 		"mongodb"
 		"mongodb-ce"
+		"steam"
+		"steam-original"
+		"steam-unwrapped"
+		"steam-run"
 	];
 
 	# unpackaged executables fix?
