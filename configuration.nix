@@ -212,6 +212,7 @@
 				ms-vscode.live-server
 				ms-vscode.makefile-tools
 				emroussel.atomize-atom-one-dark-theme
+				jeff-hykin.better-nix-syntax
 				github.copilot-chat
 			];
 		})
@@ -226,13 +227,15 @@
 		vlc
 		bolt-launcher
 		runelite
-		dissent
+		discordo
+		thunderbird
+		rclone
+		rclone-browser
 
 		# vanity
 		fastfetch
 		feh # wallpaper
 		oh-my-git # game
-		oh-my-posh # prompt engine
 	];
 
 	# kernel version
