@@ -197,10 +197,13 @@
 		ascii
 		tmux
 		wget
-		dunst
-		libnotify
+		dunst # notifications
+		libnotify # notifications
 		zip
 		unzip
+		helix # text editor
+		usbutils
+		pass # password manager
 
 		# graphic applications
 		obsidian
@@ -229,8 +232,9 @@
 		runelite
 		discordo
 		thunderbird
-		rclone
+		rclone # cloud storage
 		rclone-browser
+		nheko
 
 		# vanity
 		fastfetch
@@ -256,6 +260,9 @@
 		enableSSHSupport = true;
 	};
 
+	# expose `pass` to secret service
+  services.passSecretService.enable = true;
+
 	programs.steam = {
 		enable = true;
 		# remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -277,6 +284,11 @@
 		"steam-unwrapped"
 		"steam-run"
 	];
+
+	# libolm is deprecated but still used in nheko as of version 0.12.1
+	nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
 
 	# unpackaged executables fix?
 	programs.nix-ld.enable = true;
@@ -304,7 +316,7 @@
 	console.font = null;
 
 	environment.variables = {
-		EDITOR = "vim";
+		EDITOR = "hx";
 	};
 
 	environment.localBinInPath = true;
