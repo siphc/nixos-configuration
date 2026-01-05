@@ -151,9 +151,9 @@
 	hardware.bluetooth.powerOnBoot = true;
 	services.blueman.enable = true;
 
-	services.mongodb.enable = true;
+	# services.mongodb.enable = true;
 	# some versions of mongodb fails to build
-	services.mongodb.package = pkgs.mongodb-ce;
+	# services.mongodb.package = pkgs.mongodb-ce;
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
@@ -247,6 +247,8 @@
 		feh # wallpaper
 		oh-my-git # game
 	];
+
+	programs.tmux.extraConfig = "set -g mouse on";
 
 	# kernel version
 	# 6.12.* causes screen tearing on GNOME
