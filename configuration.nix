@@ -169,11 +169,15 @@
 		man-pages
 		man-pages-posix
 		hugo
+		nixd # nix language server
+		jdt-language-server # java
+		bash-language-server
 
 		# c development
 		gcc
 		gdb
 		clang
+		libclang
 		gnumake
 		cmake
 
