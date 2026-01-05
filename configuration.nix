@@ -174,10 +174,12 @@
 		bash-language-server
 
 		# c development
-		gcc
-		gdb
+		clang-tools
 		clang
-		libclang
+		gcc
+		glibc
+		libgcc
+		gdb
 		gnumake
 		cmake
 
