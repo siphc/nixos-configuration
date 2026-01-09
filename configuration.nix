@@ -174,7 +174,7 @@
 		bash-language-server
 		marksman # markdown
 		ocaml
-		opam
+		opam # ocaml package manager, unsure if needed
 		ocamlPackages.utop
 
 		# c development
