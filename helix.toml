@@ -2,7 +2,7 @@ theme = "base16_terminal"
 
 [editor]
 true-color = true
-line-number = "relative"
+line-number = "absolute"
 rulers = [80]
 
 [editor.soft-wrap]

@@ -45,7 +45,7 @@ int allowaltscreen = 1;
 
 /* allow certain non-interactive (insecure) window operations such as:
    setting the clipboard text */
-int allowwindowops = 0;
+int allowwindowops = 1;
 
 /*
  * draw latency range in ms - from new content/keypress/etc until drawing.
@@ -73,7 +73,9 @@ static unsigned int cursorthickness = 2;
  */
 static int bellvolume = 0;
 
-/* default TERM value */
+/* default TERM value
+ * This is set to `st*` here but overridden when attached to tmux. This is intended
+ */
 char *termname = "st-256color";
 
 /*
@@ -96,22 +98,22 @@ unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors, followed by 8 bright colors */
-"#51576d",
-"#e78284",
-"#a6d189",
-"#e5c890",
-"#8caaee",
-"#f4b8e4",
-"#81c8be",
-"#b5bfe2",
-"#626880",
-"#e78284",
-"#a6d189",
-"#e5c890",
-"#8caaee",
-"#f4b8e4",
-"#81c8be",
-"#a5adce",
+  "#51576d",
+  "#e78284",
+  "#a6d189",
+  "#e5c890",
+  "#8caaee",
+  "#f4b8e4",
+  "#81c8be",
+  "#b5bfe2",
+  "#626880",
+  "#e78284",
+  "#a6d189",
+  "#e5c890",
+  "#8caaee",
+  "#f4b8e4",
+  "#81c8be",
+  "#a5adce",
 
 	[255] = 0,
 

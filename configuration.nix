@@ -172,6 +172,10 @@
 		nixd # nix language server
 		jdt-language-server # java
 		bash-language-server
+		marksman # markdown
+		ocaml
+		opam
+		ocamlPackages.utop
 
 		# c development
 		clang-tools
@@ -201,7 +205,6 @@
 		scrot # screenshots
 		xclip # clipboard
 		ascii
-		tmux
 		wget
 		dunst # notifications
 		libnotify # notifications
@@ -248,7 +251,14 @@
 		oh-my-git # game
 	];
 
-	programs.tmux.extraConfig = "set -g mouse on";
+	programs.tmux = {
+		enable = true;
+		clock24 = true;
+		escapeTime = 5;
+		terminal = "tmux-256color";
+		extraConfig = "set -g mouse on
+			set -s set-clipboard on";
+	};
 
 	# kernel version
 	# 6.12.* causes screen tearing on GNOME
