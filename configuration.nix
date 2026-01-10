@@ -172,7 +172,6 @@
 		nixd # nix language server
 		jdt-language-server # java
 		bash-language-server
-		marksman # markdown
 		ocaml
 		opam # ocaml package manager, unsure if needed
 		ocamlPackages.utop
@@ -213,6 +212,7 @@
 		helix # text editor
 		usbutils
 		pass # password manager
+		leetgo
 
 		# graphic applications
 		obsidian

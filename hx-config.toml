@@ -1,0 +1,24 @@
+theme = "base16_terminal"
+
+[editor]
+middle-click-paste = false
+true-color = true
+undercurl = true
+rulers = [80]
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.indent-guides]
+render = true
+character = "┆"
+skip-levels = 1
+
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+other-lines = "error"
