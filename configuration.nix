@@ -175,6 +175,8 @@
 		ocaml
 		opam # ocaml package manager, unsure if needed
 		ocamlPackages.utop
+		texliveBasic
+		texlab # LaTeX language server
 
 		# c development
 		clang-tools
@@ -213,6 +215,7 @@
 		usbutils
 		pass # password manager
 		leetgo
+		alacritty-graphics
 
 		# graphic applications
 		obsidian
@@ -309,9 +312,16 @@
   ];
 
 	# unpackaged executables fix?
+	# update 1/16/26: it works!
 	programs.nix-ld.enable = true;
 	programs.nix-ld.libraries = with pkgs; [
 		glibc
+		libx11
+		libxrender
+		libxcursor
+		libxkbcommon
+		libxrandr
+		libGL
 	];
 
 	fonts = {
