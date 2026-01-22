@@ -128,6 +128,7 @@
 	# manage hibernate and suspend states
 	powerManagement.enable = true;
 
+	# interfaces well with tlp, do not disable!
 	services.thermald.enable = true;
 
 	services.tlp = {
@@ -169,12 +170,16 @@
 		man-pages
 		man-pages-posix
 		hugo
+
 		nixd # nix language server
 		jdt-language-server # java
 		bash-language-server
+
 		ocaml
-		opam # ocaml package manager, unsure if needed
+		opam # ocaml package manager
+		dune # ocaml build system
 		ocamlPackages.utop
+
 		texliveBasic
 		texlab # LaTeX language server
 
@@ -246,7 +251,6 @@
 		thunderbird
 		rclone # cloud storage
 		rclone-browser
-		nheko
 
 		# vanity
 		fastfetch
@@ -307,27 +311,25 @@
 	];
 
 	# libolm is deprecated but still used in nheko as of version 0.12.1
-	nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16"
-  ];
+	# nixpkgs.config.permittedInsecurePackages = [
+  #   "olm-3.2.16"
+  # ];
 
 	# unpackaged executables fix?
 	# update 1/16/26: it works!
 	programs.nix-ld.enable = true;
 	programs.nix-ld.libraries = with pkgs; [
 		glibc
-		libx11
-		libxrender
-		libxcursor
-		libxkbcommon
-		libxrandr
-		libGL
+		# libx11
+		# libxrender
+		# libxcursor
+		# libxkbcommon
+		# libxrandr
+		# libGL
 	];
 
 	fonts = {
 		packages = with pkgs; [
-			# deprecated 25.05
-			# (nerdfonts.override { fonts = ["CascadiaCode"]; })
 			nerd-fonts.caskaydia-cove
 			wqy_microhei # cn & jp
 			nanum # kr
@@ -372,7 +374,7 @@
 	# started in user sessions.
 
 	# Enable the OpenSSH daemon.
-	 services.openssh.enable = true;
+	# services.openssh.enable = true;
 
 	# Open ports in the firewall.
 	# networking.firewall.allowedTCPPorts = [ ... ];
