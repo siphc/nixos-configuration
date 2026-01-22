@@ -20,3 +20,4 @@ Pretty sure this recompiles firefox like 4 times, so you'll need to wait a bit.
 
 TODO:
 All three suckless packages can be added as Git submodules... Will get to that the next time I have to reinstall my system.
+There is also a (one-line) patch needed to fix window borders being transparent. It is called fixborders. I have manually applied it for now but I will get to automating that when I have the time.
