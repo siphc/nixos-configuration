@@ -1,4 +1,4 @@
-theme = "gruvbox-material"
+theme = "base16_terminal"
 
 [editor]
 middle-click-paste = false
@@ -17,6 +17,3 @@ skip-levels = 1
 
 [editor.soft-wrap]
 enable = true
-
-[keys.normal.space]
-z = ":toggle gutters.line-numbers.min-width 70 3"
