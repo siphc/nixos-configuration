@@ -11,6 +11,8 @@ Steps to replicate the system configuration starting from a fresh NixOS installa
 10. fix PATH by symlinking to `./bin` from `~/.local/bin`
 11. reboot.
 
+Optionally you can do a manual patch in slstatus/util.c where you change the prefix_1024 values in fmt_human to single characters i.e. K, B, G. I could make a patch but I'm too lazy.
+
 Steps to upgrade nixpkgs channels:
 I don't trust system.autoUpgrade.enable, so we have to do this manually twice a year.
 1. `sudo nix-channel --add https://channels.nixos.org/channel-name nixos`, change channel-name to a desirable channel, like nixos-25.11 or nixos-unstable.

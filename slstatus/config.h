@@ -66,20 +66,19 @@ static const char unknown_str[] = "n/a";
 
 static const char volume[] = "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2$3}'";
 static const char brightness[] = "brightnessctl -m | awk -F, '{print $3}'";
-static const char brightness_perc[] = "brightnessctl -m | awk -F, '{print substr($4,1,length($4)-1)}'";
 
 
 static const struct arg args[] = {
-	/* function             format          argument */
-    { cpu_perc,             "cpu %s%%  ",   NULL            },
-    { ram_used,             "ram %s",       NULL            },
-    { ram_total,            "/%.6s  ",      NULL            },
-    { run_command,          "vol %s  ",     volume          },
-    { run_command,          "bright %s",    brightness      },
-    { run_command,          "(%s%%)  ",     brightness_perc },
-    { wifi_essid,           "%s",           "wlp1s0"        },
-    { wifi_perc,            "(%s%%)  ",     "wlp1s0"        },
-    { battery_perc,         "bat %s%%",     "BAT0"          },
-    { battery_remaining,    "(%s)  ",       "BAT0"          },
-	{ datetime,             "%s",           "%m/%d %T"      },
+	/* function             format              argument */
+    { cpu_perc,             "cpu %s%%  ",       NULL            },
+    { temp,                 "%sC  ",            "/sys/class/thermal/thermal_zone0/temp" },
+    { ram_used,             "ram %s",           NULL            },
+    { ram_total,            "/%s  ",            NULL            },
+    { run_command,          "vol %s  ",         volume          },
+    { run_command,          "bright %s/255  ",  brightness      },
+    { wifi_essid,           "%s",               "wlp1s0"        },
+    { wifi_perc,            "(%s%%)  ",         "wlp1s0"        },
+    { battery_perc,         "bat %s%%",         "BAT0"          },
+    { battery_remaining,    "(%s)  ",           "BAT0"          },
+	{ datetime,             "%s",               "%m/%d %T"      },
 };

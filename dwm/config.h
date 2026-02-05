@@ -62,8 +62,8 @@ static const char *up_vol[]   = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@",
 static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-",    NULL };
 static const char *mute_vol[] = { "wpctl", "set-mute",   "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
 
-static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
-static const char *dimmer[]   = { "brightnessctl", "set", "5%-", NULL };
+static const char *brighter[] = { "brightnessctl", "set", "16+", NULL };
+static const char *dimmer[]   = { "brightnessctl", "set", "16-", NULL };
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
