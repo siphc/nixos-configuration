@@ -5,11 +5,8 @@ Steps to replicate the system configuration starting from a fresh NixOS installa
 4. change `users.users.*` and `"nixos-config=*` in `nix.nixPath` to your own username, of course.
 5. **IMPORTANT**: change `system.stateVersion` to your own version AS OF TIME OF INSTALL as described in `/etc/nixos/configuration.nix`.
 6. `nixos-rebuild switch -I nixos-config=/home/[USER]/nixos-configuration/configuration.nix`
-7. ensure screenshot scripts function properly: `cd ~ ; mkdir -p Pictures/Screenshots`
-8. configure lf: `~/nixos-configuration/initsetup.sh`
-9. copy .bashrc out of this directory to your $HOME.
-10. fix PATH by symlinking to `./bin` from `~/.local/bin`
-11. reboot.
+7. `~/nixos-configuration/initsetup.sh`
+8. reboot.
 
 Optionally you can do a manual patch in slstatus/util.c where you change the prefix_1024 values in fmt_human to single characters i.e. K, B, G. I could make a patch but I'm too lazy.
 
