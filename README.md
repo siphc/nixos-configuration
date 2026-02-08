@@ -21,6 +21,7 @@ Both commands have to be ran with `sudo` to make sure that the channel is correc
 Pretty sure this recompiles firefox like 4 times, so you'll need to wait a bit.
 
 TODO:
-All three suckless packages can be added as Git submodules... Will get to that the next time I have to reinstall my system.
-There is also a (one-line) patch needed to fix window borders being transparent. It is called fixborders. I have manually applied it for now but I will get to automating that when I have the time.
-- This patch makes it so that you have to login twice (the first time it logs out automatically). I do not know why. The fix works though
+- All three suckless packages can be added as Git submodules... Will get to that the next time I have to reinstall my system.
+- There is also a (one-line) patch needed to fix window borders being transparent. It is called fixborders. I have manually applied it for now but I will get to automating that when I have the time.
+  - This patch makes it so that you have to login twice SOMETIMES (the first time it logs out automatically). I do not know why. The fix works though
+- It is best to set up a cronjob that runs `sudo nixos-rebuild switch --upgrade` every 24 hours or so, as the rebuild times are quite long if left neglected for a long time.
