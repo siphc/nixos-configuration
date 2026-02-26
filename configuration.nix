@@ -64,7 +64,7 @@
 	services.xserver.windowManager.dwm = {
 		enable = true;
 		package = pkgs.dwm.overrideAttrs {
-			src = ./dwm;
+			src = ./src/dwm;
 		};
 	};
 
@@ -203,10 +203,7 @@
 		brightnessctl # device brightness control
 		dmenu # dynamic menu for dwm
 		(slstatus.overrideAttrs { # status monitor
-			src = ./slstatus;
-		})
-		(st.overrideAttrs { # terminal
-			src = ./st;
+			src = ./src/slstatus;
 		})
 		scrot # screenshots
 		xclip # clipboard
@@ -218,7 +215,6 @@
 		unzip
 		helix # text editor
 		usbutils
-		pass # password manager
 		leetgo
 		alacritty-graphics
 
@@ -239,10 +235,8 @@
 		krita
 		pinta
 		firefox
-		firefox-devedition
 		librewolf
 		nsxiv # image viewer
-		tor-browser
 		obs-studio
 		vlc
 		bolt-launcher

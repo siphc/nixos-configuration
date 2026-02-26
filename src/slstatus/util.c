@@ -97,17 +97,17 @@ fmt_human(uintmax_t num, int base)
 	const char **prefix;
 	const char *prefix_1000[] = { "", "k", "M", "G", "T", "P", "E", "Z",
 	                              "Y" };
-	const char *prefix_1024[] = { "", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei",
-	                              "Zi", "Yi" };
+	// const char *prefix_1024[] = { "", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei",
+	//                               "Zi", "Yi" };
 
 	switch (base) {
 	case 1000:
+		// prefix = prefix_1000;
+		// prefixlen = LEN(prefix_1000);
+		// break;
+	case 1024:
 		prefix = prefix_1000;
 		prefixlen = LEN(prefix_1000);
-		break;
-	case 1024:
-		prefix = prefix_1024;
-		prefixlen = LEN(prefix_1024);
 		break;
 	default:
 		warn("fmt_human: Invalid base");
