@@ -13,3 +13,7 @@ indent = { tab-width = 4, unit = "\t" }
 [[language]]
 name = "markdown"
 indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "java"
+indent = { tab-width = 4, unit = "    " }

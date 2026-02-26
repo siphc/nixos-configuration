@@ -165,7 +165,7 @@
 		patchelf
 		python312
 		nix-index # nix-locate
-		jdk # openJDK 21
+		jdk25_headless # openJDK 21
 		nodejs_24
 		man-pages
 		man-pages-posix
@@ -177,7 +177,6 @@
 
 		ocaml
 		opam # ocaml package manager
-		dune # ocaml build system
 		ocamlPackages.utop
 
 		texliveBasic
@@ -189,6 +188,7 @@
 		gcc
 		glibc
 		libgcc
+
 		gdb
 		gnumake
 		cmake
@@ -249,8 +249,6 @@
 		runelite
 		discordo
 		thunderbird
-		rclone # cloud storage
-		rclone-browser
 
 		# vanity
 		fastfetch
