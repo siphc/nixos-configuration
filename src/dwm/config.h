@@ -122,8 +122,8 @@ static const Key keys[] = {
     { 0,    XF86XK_MonBrightnessUp,     spawn,  {.v = brighter } },
     // application shortcuts
     { MODKEY, XK_b, spawn, {.v = def_browser} },
-    { 0, XK_Print, spawn, SHCMD("/home/svi/nixos-configuration/dwm/screenshot.sh") },
-    { ControlMask, XK_Print, spawn, SHCMD("/home/svi/nixos-configuration/dwm/screenshot_region.sh") },
+    { 0, XK_Print, spawn, SHCMD("/home/svi/nixos-configuration/src/dwm/screenshot.sh") },
+    { ControlMask, XK_Print, spawn, SHCMD("/home/svi/nixos-configuration/src/dwm/screenshot_region.sh") },
 };
 
 /* button definitions */
