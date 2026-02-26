@@ -10,7 +10,7 @@
 	imports =
 		[ # Include the results of the hardware scan.
 			/etc/nixos/hardware-configuration.nix
-			./vim.nix
+			./cfgs/vim.nix
 		];
 
 	# Bootloader.
