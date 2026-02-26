@@ -1,6 +1,6 @@
 set -e
 
-# questions for oneself:
+# question for oneself:
 # why does 'git diff --exit-code' not work?
 if git diff --quiet ; then
 	echo "No changes detected; exiting."
