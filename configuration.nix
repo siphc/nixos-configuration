@@ -182,6 +182,8 @@
 		texliveBasic
 		texlab # LaTeX language server
 
+		crush
+
 		# c development
 		clang-tools
 		clang
@@ -290,16 +292,21 @@
 	# unfree packages
 	nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
 		"obsidian"
+
 		"vscode"
 		"vscode-with-extensions"
 		"vscode-extension-ms-vscode-cpptools"
 		"vscode-extension-github-copilot-chat"
+
 		"mongodb"
 		"mongodb-ce"
+
 		"steam"
 		"steam-original"
 		"steam-unwrapped"
 		"steam-run"
+
+		"crush"
 	];
 
 	# libolm is deprecated but still used in nheko as of version 0.12.1
