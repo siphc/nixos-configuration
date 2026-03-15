@@ -49,7 +49,7 @@ in
 		clang
 		gcc
 
-		# gdb
+		# gdb # build error on 17.1
 		gnumake
 		cmake
 

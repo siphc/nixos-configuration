@@ -1,5 +1,8 @@
-[window]
-decorations = "None"
+# [window]
+# decorations = "None"
 
-[font]
-size = 6
+# [font]
+# size = 6
+
+[env]
+TERM = "xterm-256color"
