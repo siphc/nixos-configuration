@@ -11,7 +11,7 @@
   ];
 
   # If you change this, next invocation of darwin-rebuild should use the -I flag.
-  environment.darwinConfig = "/Users/svi/Documents/nixos-configuration/darwin-config.nix";
+  environment.darwinConfig = "/Users/svi/nixos-configuration/darwin-config.nix";
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
