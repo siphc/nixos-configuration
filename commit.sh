@@ -10,14 +10,15 @@ fi
 git diff -bU0
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-	message=$(nixos-rebuild list-generations | grep True)
+	message="linux $(nixos-rebuild list-generations | grep True)"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	message=$(sudo darwin-rebuild --list-generations | grep current)
+	message="darwin $(sudo darwin-rebuild --list-generations | grep current)"
 else
 	echo "Unsupported OS."
 	exit 0
 fi
 
-bversion=$(echo $message | awk {'print $1'})
-bdate=$(echo $message | awk {'print $2'})
-git commit -am "build version: $bversion build date: $bdate"
+sys=$(echo "$message" | awk {'print $1'})
+ver=$(echo "$message" | awk {'print $2'})
+dat=$(echo "$message" | awk {'print $3'})
+git commit -am "$sys: v.$ver on $dat"
