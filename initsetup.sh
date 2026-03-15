@@ -9,4 +9,12 @@ ln -s ~/nixos-configuration/cfgs/.bashrc ~/.bashrc
 ln -s ~/nixos-configuration/cfgs/lf ~/.config/lf
 ln -s ~/nixos-configuration/cfgs/hx-config.toml ~/.config/helix/config.toml
 ln -s ~/nixos-configuration/cfgs/hx-language.toml ~/.config/helix/languages.toml
-ln -s ~/nixos-configuration/cfgs/alacritty.toml ~/.config/alacritty/alacritty.toml
+
+case $(uname) in
+  "Darwin")
+    ln -s ~/nixos-configuration/cfgs/alacritty-darwin.toml ~/.config/alacritty/alacritty.toml
+    ;;
+  *)
+    ln -s ~/nixos-configuration/cfgs/alacritty-linux.toml ~/.config/alacritty/alacritty.toml
+    ;;
+esac
