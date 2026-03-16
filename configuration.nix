@@ -71,18 +71,6 @@ in
 
 		# graphic applications
 		obsidian
-		(vscode-with-extensions.override {
-			vscodeExtensions = with vscode-extensions;
-			[
-				# ms-vscode.cpptools # build failure on 1.28.3. Thanks microsoft!
-				ms-python.python
-				ms-vscode.live-server
-				ms-vscode.makefile-tools
-				emroussel.atomize-atom-one-dark-theme
-				jeff-hykin.better-nix-syntax
-				github.copilot-chat
-			];
-		})
 		firefox
 		librewolf
 		discordo
@@ -94,6 +82,8 @@ in
 	++ lib.optionals isDarwin [
 		vesktop
 		spotify
+		vscode # other package breaks in Applications but works fine on cmd line (?)
+		# for MacOS, we will just have to install extensions non-declaratively.
 	]
 	++ lib.optionals isLinux [
 		glibc
@@ -113,6 +103,18 @@ in
 		obs-studio
 		vlc
 		feh # wallpaper
+		(vscode-with-extensions.override {
+			vscodeExtensions = with vscode-extensions;
+			[
+				ms-vscode.cpptools # build failure on 1.28.3. Thanks microsoft!
+				ms-python.python
+				ms-vscode.live-server
+				ms-vscode.makefile-tools
+				emroussel.atomize-atom-one-dark-theme
+				jeff-hykin.better-nix-syntax
+				github.copilot-chat
+			];
+		})
 	];
 
 	# unfree packages

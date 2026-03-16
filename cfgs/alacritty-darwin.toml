@@ -7,7 +7,7 @@ size = 14
 [window]
 padding = {x = 8, y = 6}
 decorations = "Buttonless"
-opacity = 0.92
+opacity = 0.8
 blur = true
 
 [selection]
