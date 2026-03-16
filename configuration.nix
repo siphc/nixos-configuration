@@ -92,7 +92,8 @@ in
 		fastfetch
 	]
 	++ lib.optionals isDarwin [
-
+		vesktop
+		spotify
 	]
 	++ lib.optionals isLinux [
 		glibc
@@ -132,6 +133,8 @@ in
 		"steam-run"
 
 		"crush"
+
+		"spotify"
 	];
 
 	environment.variables = {

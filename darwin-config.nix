@@ -1,9 +1,6 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-  ];
-
   # If you change this, next invocation of darwin-rebuild should use the -I flag.
   environment.darwinConfig = "/Users/svi/nixos-configuration/configuration.nix";
 
