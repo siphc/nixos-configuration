@@ -18,7 +18,8 @@ cd ~/nixos-configuration/
 vim configuration.nix
 vim src/dwm/config.h
 
-# IMPORTANT: Change `system.stateVersion` to your own version AS OF TIME OF INSTALL as described in `/etc/nixos/configuration.nix`.
+# IMPORTANT: Change `system.stateVersion` to your own version AS OF TIME OF INSTALL
+# as described in `/etc/nixos/configuration.nix`.
 vim configuration.nix
 
 # Rebuild the system.
