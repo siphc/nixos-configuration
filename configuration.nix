@@ -30,6 +30,8 @@ in
 		man-pages
 		man-pages-posix
 		hugo
+		gradle
+		javacc
 
 		nixd # nix language server
 		jdt-language-server # java
@@ -80,10 +82,11 @@ in
 		fastfetch
 	]
 	++ lib.optionals isDarwin [
-		vesktop
-		spotify
 		vscode # other package breaks in Applications but works fine on cmd line (?)
-		# for MacOS, we will just have to install extensions non-declaratively.
+		# ... for MacOS, we will just have to install extensions non-declaratively.
+		poppler-utils
+		# we are installing some unfree packages "normally":
+		# claude, slack, vesktop, spotify, zoom, turbotax.
 	]
 	++ lib.optionals isLinux [
 		glibc
@@ -135,8 +138,6 @@ in
 		"steam-run"
 
 		"crush"
-
-		"spotify"
 	];
 
 	environment.variables = {
