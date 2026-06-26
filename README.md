@@ -43,6 +43,15 @@ This command takes a bit. Be patient.
 
 ---
 
+How to update nix-darwin:
+
+```sh
+sudo nix-channel --update
+sudo darwin-rebuild switch
+```
+
+---
+
 TODO:
 
 - It is best to set up a cronjob that runs `sudo nixos-rebuild switch --upgrade` every 24 hours or so, as the rebuild times are quite long if left neglected for a long time.
