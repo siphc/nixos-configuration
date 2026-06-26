@@ -2,13 +2,12 @@
 TERM = "xterm-256color"
 
 [font]
-size = 14
-
-[window]
-padding = {x = 8, y = 6}
-decorations = "Buttonless"
-opacity = 0.8
-blur = true
+size = 16
+offset = { x = 1, y = 3 }
+normal      = { family = "FantasqueSansM Nerd Font", style = "Regular" }
+bold        = { family = "FantasqueSansM Nerd Font", style = "Bold" }
+italic      = { family = "FantasqueSansM Nerd Font", style = "Italic" }
+bold_italic = { family = "FantasqueSansM Nerd Font", style = "Bold Italic" }
 
 [selection]
 save_to_clipboard = true
@@ -17,7 +16,6 @@ save_to_clipboard = true
 [colors.primary]
 background = '#2c2c2c'
 foreground = '#d6d6d6'
-
 dim_foreground    = '#dbdbdb'
 bright_foreground = '#d9d9d9'
 
