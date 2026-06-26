@@ -17,3 +17,12 @@ indent = { tab-width = 2, unit = "  " }
 [[language]]
 name = "java"
 indent = { tab-width = 4, unit = "    " }
+
+# MacOS only to fix clangd frankenstein fallback
+# For posterity, also add the following to ~/Library/Preferences/clangd/config.yaml:
+# CompileFlags:
+#   Compiler: /run/current-system/sw/bin/clang++
+#   Add: [-I/Users/svi/nixos-configuration/include]
+[language-server.clangd]
+command = "clangd"
+args = ["--query-driver=/run/current-system/sw/bin/clang++"]
